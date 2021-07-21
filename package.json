@@ -1,0 +1,23 @@
+{
+  "name": "film",
+  "version": "1.0.0",
+  "description": "Learning",
+  "main": "index.js",
+  "repository": "https://github.com/DP23-riahead-co/Ap-movie-backend.git",
+  "author": "Duy",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node sever.js",
+    "dev": "nodemon sever.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.12",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}
