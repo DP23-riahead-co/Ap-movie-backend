@@ -6,19 +6,26 @@ const { Films } = require("../models")
 
 const getFilmList = async (req, res) => {
     try {
-        const Films = await Films.findAll({});
-        res.send(Films);
+        const FilmList = await Films.findAll();
+        res.status(200).send(FilmList);
     }
     catch (err) {
         res.status(500).send(err);
     }
 }
 const getFilmDetail = async (req, res) => {
+    const { id } = req.params;
     try {
-        const film = await Films.findByPk(id);
-        res.send(film);
+        const filmDetail = await Films.findOne({
+            where: {
+                id,
+            }
+        });
+        console.log(filmDetail);
+        !filmDetail?res.send("not found"):
+        res.send(filmDetail);
     } catch (err) {
-        res.status(400).send(err);
+        res.status(404).send(err);
     }
     
 }
@@ -46,11 +53,13 @@ const updateFilm = async (req, res) => {
     const { title, year, director, actors, country, genre, description } = req.body;
     try {
         await Films.update({ title, year, director, actors, country, genre, description }, { where: { id } });
+        const film=await Films.findByPk(id);
+        console.log("film",film);
+        res.status(200).send(film);
+        
     } catch {
 
     }
-
- 
 }
 
 module.exports = { getFilmDetail, addNewFilm, deleteFilms, updateFilm, getFilmList };
