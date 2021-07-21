@@ -6,7 +6,7 @@
   "repository": "https://github.com/DP23-riahead-co/Ap-movie-backend.git",
   "author": "Duy",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "scripts": {
     "start": "node sever.js",
     "dev": "nodemon sever.js"
